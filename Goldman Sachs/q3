@@ -1,3 +1,6 @@
+/*Count the subarrays having product less than k */
+/*https://practice.geeksforgeeks.org/problems/count-the-subarrays-having-product-less-than-k1708/1/ */
+
 int countSubArrayProductLessThanK(const vector<int>& a, int n, long long k) {
   long long p=1;
   int res=0;
