@@ -1,0 +1,8 @@
+ long long squaresInChessBoard(long long N) {
+        long long ans=0;
+        for(long long i=1;i<=N;i++)
+        {
+            ans+=i*i;
+        }
+        return ans;
+    }
