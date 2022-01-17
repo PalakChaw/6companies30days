@@ -1,3 +1,6 @@
+ /*Squares in N*N Chessboard */
+ /*https://practice.geeksforgeeks.org/problems/squares-in-nn-chessboard1801/1 */
+ 
  long long squaresInChessBoard(long long N) {
         long long ans=0;
         for(long long i=1;i<=N;i++)
