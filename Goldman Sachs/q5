@@ -1,3 +1,6 @@
+/*Ugly Numbers */
+/*https://practice.geeksforgeeks.org/problems/ugly-numbers2254/1/ */
+
 ull getNthUglyNo(int n) {
 	    // code here
 	   long long c2 = 0,c3 = 0,c5 = 0;
