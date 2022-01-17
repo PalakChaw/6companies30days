@@ -1,17 +1,18 @@
-/*Find the position of M-th item */
-/*https://practice.geeksforgeeks.org/problems/find-the-position-of-m-th-item1723/1/ */
+/* Question : Distributing M items in a circle of size N starting from K-th position */
  
- 
- int findPosition(int N , int M , int K) {
-        if(N==1)
-        return 1;
-        int ans=M%N+K-1;
-        if(ans==N)
-        {
-            return ans;
-        }
-        else 
-        {
-            return ans%N;
-        }
+#include<bits/stdc++.h>
+using namespace std;
+
+int Toy(int kids, int toys, int start) {
+    int first = kids - start + 1;
+
+    if (first >= toys) {
+        return start + toys - 1;
     }
+
+    toys -= first;
+    int rounds = toys / kids;
+    toys -= (rounds * kids);
+
+    return toys;
+}
