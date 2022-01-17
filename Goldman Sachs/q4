@@ -1,3 +1,6 @@
+/*Run Length Encoding */
+/*https://practice.geeksforgeeks.org/problems/run-length-encoding/1/ */
+
 string encode(string src)
 {    
   int n=src.size();
