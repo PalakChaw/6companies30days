@@ -1,3 +1,7 @@
+ /* Question : Given a pattern containing only I's and D's. I for increasing and D for decreasing.
+Devise an algorithm to print the minimum number following that pattern.  */
+/* Question Link : https://practice.geeksforgeeks.org/problems/number-following-a-pattern3126/1# */
+ 
  string printMinNumberForPattern(string s){
         string t = "";
 stack<int> st;
