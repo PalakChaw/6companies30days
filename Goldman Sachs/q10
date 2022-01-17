@@ -1,0 +1,20 @@
+#include<bits/stdc++.h>
+using namespace std;
+
+vector <int> maxTen(vector <int> n) {
+
+    priority_queue <int> pq (n.begin(), n.end());
+    vector <int> ans;
+
+    for (int i = 0; i < 10; i++) {
+        ans.push_back(pq.top());
+        pq.pop();
+    }
+    
+    return ans;
+}
+
+int main () {
+
+    return 0;
+}
