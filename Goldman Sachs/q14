@@ -1,3 +1,6 @@
+/*Minimum Size Subarray Sum */
+/*https://leetcode.com/problems/minimum-size-subarray-sum/ */
+
 int minSubArrayLen(int target, vector<int>& nums) {
         int cnt=0;
         int sum=0;
