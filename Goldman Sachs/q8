@@ -1,3 +1,6 @@
+ /* Question :  You have to determine the total number of ways that message can be decoded, as the answer can be large return the answer modulo 109 + 7. */
+/* Question Link : https://practice.geeksforgeeks.org/problems/total-decoding-messages1235/1/# */
+ 
  int numDecodings(string s) {
         if (s[0] == '0') return 0;
         if (s.size() == 1) return 1;
