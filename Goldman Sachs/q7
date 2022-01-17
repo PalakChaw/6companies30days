@@ -1,3 +1,7 @@
+/*Find the position of M-th item */
+/*https://practice.geeksforgeeks.org/problems/find-the-position-of-m-th-item1723/1/ */
+ 
+ 
  int findPosition(int N , int M , int K) {
         if(N==1)
         return 1;
