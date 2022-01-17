@@ -1,3 +1,6 @@
+ /*Greatest Common Divisor of Strings */
+ /*https://leetcode.com/problems/greatest-common-divisor-of-strings/ */
+ 
  string gcdOfStrings(string str1, string str2) {
         int n1=str1.size();
         int n2=str2.size();
