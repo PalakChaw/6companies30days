@@ -1,0 +1,29 @@
+   /* Longest Mountain in Array */
+   /*https://leetcode.com/problems/longest-mountain-in-array/ */
+   
+   int longestMountain(vector<int>& arr) {
+        int max_peak=0;
+        int cnt=0;
+        bool peak_found=false;
+        for(int i=1;i<arr.size()-1;i++)
+        {
+            if(arr[i]>arr[i-1] && arr[i]>arr[i+1])
+            {
+                int j=i;//storing position of peak
+                cnt=1;
+                peak_found=true;
+            while(j>0 && arr[j]>arr[j-1]) // length of left side of peak
+             {
+                j--;
+                cnt++;
+             }
+            }
+            if(arr[i]>arr[i+1]) //length of right side
+                cnt++;
+            else 
+                peak_found=false;
+            if(max_peak<cnt && peak_found)
+               max_peak=cnt;
+        }
+        return max_peak;
+    }
