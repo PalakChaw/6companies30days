@@ -1,0 +1,13 @@
+/*Column name from a given column number  */
+/*https://practice.geeksforgeeks.org/problems/column-name-from-a-given-column-number4244/1/ */
+ string colName (long long int n)
+    {
+       string res="";
+       while(n)
+       {
+           char c='A'+(n-1)%26;
+           res=c+res;
+           n=(n-1)/26;
+       }
+       return res;
+    }
