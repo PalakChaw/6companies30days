@@ -5,6 +5,7 @@
 vector<vector<string>> displayContacts(int n, string contact[], string s)
     {
     
+    
       int i;string t="";  vector<vector<string>> ans;
       for(i=0;i<s.size();i++)
       {
