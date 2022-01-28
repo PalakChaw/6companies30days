@@ -1,0 +1,27 @@
+/*Stickler Thief */
+/* https://practice.geeksforgeeks.org/problems/stickler-theif-1587115621/1/# */
+
+int FindMaxSum(int arr[],int size)
+    {
+     int large;
+       if(size==1)
+       {
+       return arr[0];
+       }
+       else if(size==2)
+       {
+       return max(arr[0],arr[1]);
+       }
+       else
+       {
+       int m = arr[0];
+       int n = max(arr[0],arr[1]);
+       for(int i=2;i<size;i++)
+       {
+           large = max(n, m+arr[i]);
+           m = n;
+           n = large;
+       }
+       }
+       return large;
+   }
