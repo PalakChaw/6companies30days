@@ -1,0 +1,23 @@
+ /*Stock span problem */
+ /*https://practice.geeksforgeeks.org/problems/stock-span-problem-1587115621/1 */
+ 
+ vector <int> calculateSpan(int price[], int n)
+    {
+       // Your code here
+        vector<int> span(n,1);
+       stack<pair<int,int>> s;
+       s.push({INT_MAX, -1});
+       for(int i=0;i<n;i++){
+           if(price[i] < s.top().first){
+               s.push(make_pair(price[i], i));
+               span[i]=1;
+           }else{
+               while(s.top().first <= price[i]){
+                   s.pop();
+               }
+               span[i]=i-s.top().second;
+               s.push({price[i], i});
+           }
+       }
+       return span;
+    }
