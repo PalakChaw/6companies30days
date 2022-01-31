@@ -1,0 +1,25 @@
+/* Winner of an election */
+/* https://practice.geeksforgeeks.org/problems/winner-of-an-election-where-votes-are-represented-as-candidate-names-1587115621/1/ */
+
+
+vector<string> winner(string arr[],int n)
+    {
+        // Your code here
+        // Return the string containing the name and an integer
+        // representing the number of votes the winning candidate got
+        map<string,int> m;
+       int c=0;
+       for(int i=0; i<n; i++){
+           m[arr[i]]++;
+           c=max(c,m[arr[i]]);
+       }
+       vector<string> r;
+       for(auto it:m){
+           if(it.second==c){
+           r.push_back(it.first);
+           break;
+         }
+       }
+       r.push_back(to_string(c));
+       return r;
+    }
