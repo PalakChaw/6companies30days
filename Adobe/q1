@@ -1,0 +1,23 @@
+/*Subarray with given sum  */
+/* https://practice.geeksforgeeks.org/problems/subarray-with-given-sum-1587115621/1 */
+ vector<int> subarraySum(int arr[], int n, long long s)
+    {
+        // Your code here
+         int i = 0, j = 0, sum = arr[0];
+       
+       while(i < n) {
+           if(sum == s) 
+               return {i+1, j+1};
+           
+           if(sum < s) {
+               j++;
+               sum += arr[j];
+           }
+           else {
+               i++;
+               sum -= arr[i-1];
+           }
+       }
+       
+       return {-1};
+    }
