@@ -1,0 +1,48 @@
+/* Course Schedule II */
+/* https://leetcode.com/problems/course-schedule-ii/ */
+
+class Solution {
+    vector<int> isCyclic(int V, vector<int> adj[]){
+        vector<int> indegree(V, 0);
+        queue<int> q;
+        for(int i=0;i<V;i++){
+            for(auto it:adj[i]){
+                indegree[it]++;
+            }
+        }
+        for(int i=0;i<V;i++){
+            if(indegree[i] == 0){
+                q.push(i);
+            }
+        }
+        int cnt = 0;
+        vector<int> topo;
+        vector<int> emptytopo;
+        while(!q.empty()){
+            int node = q.front();
+            q.pop();
+            cnt++;
+            topo.push_back(node);
+            for(auto it:adj[node]){
+                indegree[it]--;
+                if(indegree[it] == 0){
+                    q.push(it);
+                }
+            }
+        }
+        if(cnt == V){
+            reverse(topo.begin(), topo.end());
+            return topo;
+        }
+        return emptytopo;
+    }
+public:
+    vector<int> findOrder(int numCourses, vector<vector<int>>& prerequisites) {
+        vector<int> adj[numCourses];
+        for(int i=0;i<prerequisites.size();i++){
+            adj[prerequisites[i][0]].push_back(prerequisites[i][1]); 
+        }
+        vector<int> ans = isCyclic(numCourses, adj);
+        return ans;
+    }
+};
