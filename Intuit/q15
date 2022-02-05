@@ -2,32 +2,34 @@
 /* https://leetcode.com/problems/koko-eating-bananas/ */
 class Solution {
 public:
-    bool ispossible(vector<int> p, int mid,int h) 
+    int minEatingSpeed(vector<int>& piles, int h) {
+         int n= piles.size();
+    int speed = INT_MAX;
+    int low =0; int high = *max_element(piles.begin(),piles.end());
+    while(low<=high)
     {
-       int count = 0;
-        for(int i = 0;i<p.size();i++)
+        int mid = (low+high)/2;
+        
+     double hours=0;
+        for(int i=0;i<n;i++)
         {
-            count += (p[i] / mid);
-            if(p[i] % mid != 0) count += 1;
-        } 
-        return (count <= h);
-    }
-    int minEatingSpeed(vector<int>& p, int h) {
-       int low = 1;
-        int high = *max_element(p.begin(),p.end());
-        int ans;
-        while(low<=high)
-        {
-            int mid = (low + high)/2;
-            if(ispossible(p,mid,h))
+            hours += ceil((1.0*piles[i])/mid);
+           // this is most important
+        }
+        // We are using speed because if we get 2 answers which are satisfying the above condition we have to get the minimum
+         if(hours<=h)
             {
+                speed = min(mid,speed);
                 high = mid-1;
-                ans = mid;
             }
-            else{
+            if(hours>h)
+            {
                 low = mid+1;
             }
-        }
-        return ans;
+        
+       
+    }
+    
+   return speed;
     }
 };
