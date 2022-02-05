@@ -1,0 +1,30 @@
+/* Construct Quad Tree*/
+/* https://leetcode.com/problems/construct-quad-tree/ */
+
+class Solution {
+public:
+    Node* solve(vector<vector<int>>& grid, int left, int right, int up, int down) {
+        bool allSame = true ;
+        for(int i=up ; i<down ; i++) {
+            for(int j=left ; j<right ; j++) {
+                if(grid[i][j]!=grid[up][left]) {
+                    allSame = false ;
+                    break ;
+                }
+            }
+        }
+        if(allSame) return new Node(grid[up][left], true) ;
+        Node* ans = new Node() ;
+        int midLR = (left+right)/2 ;
+        int midUD = (up+down)/2 ;
+        ans->topLeft = solve(grid, left, midLR, up, midUD) ;
+        ans->topRight = solve(grid, midLR, right, up, midUD) ;
+        ans->bottomLeft = solve(grid, left, midLR, midUD, down) ;
+        ans->bottomRight = solve(grid, midLR, right, midUD, down) ;
+        return ans ;
+    }
+    
+    Node* construct(vector<vector<int>>& grid) {
+        return solve(grid, 0, grid.size(), 0, grid.size()) ;
+    }
+};
