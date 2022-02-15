@@ -1,0 +1,26 @@
+/* https://leetcode.com/problems/remove-colored-pieces-if-both-neighbors-are-the-same-color/ */
+/* Remove Colored Pieces if Both Neighbors are the Same Color */
+class Solution {
+public:
+    bool winnerOfGame(string colors) {
+        if(colors.size()<3)
+            return false;
+        int counta=0,countb=0;
+        for(int i=1;i<colors.length()-1;i++)
+        {
+          if(colors[i]=='A')
+          {
+              if(colors[i-1]=='A' && colors[i+1]=='A')
+                  counta++;
+          }
+            else
+            {
+               if(colors[i-1]=='B' && colors[i+1]=='B')
+                  countb++; 
+            }
+        }
+        if(counta<=countb)
+            return false;
+        return true;
+    }
+};
