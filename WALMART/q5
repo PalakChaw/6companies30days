@@ -1,0 +1,30 @@
+/* https://practice.geeksforgeeks.org/problems/transform-to-sum-tree/1/ */
+/* Transform to Sum Tree  */
+void sum(Node * node,int &count)
+   {
+       if(!node) 
+       {
+           return;
+       }
+       
+       sum(node->left,count);
+       sum(node->right,count);
+      count+=node->data;
+   }
+   void toSumTree(Node *node)
+   {
+       // Your code here
+       int count = 0;
+       queue<Node*>q;
+       q.push(node);
+       while(!q.empty())
+       {
+           Node * temp = q.front();
+           q.pop();
+           sum(temp,count);
+           temp->data = count -temp->data;
+           count = 0;
+           if(temp->left != NULL)q.push(temp->left);
+           if(temp->right != NULL)q.push(temp->right);
+       }
+   }
