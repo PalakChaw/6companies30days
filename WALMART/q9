@@ -1,0 +1,25 @@
+/* Guess Number Higher or Lower II */
+/* https://leetcode.com/problems/guess-number-higher-or-lower-ii/ */
+class Solution {
+private:
+    int helper(int start, int end, vector<vector<int>> &memo) {
+        if (start >= end) return 0;
+        if (memo[start][end] != INT_MAX) return memo[start][end];
+        
+        int res = INT_MAX;
+        
+        for (int i = start; i <= end; i++) {
+            int temp = i;
+            temp += max(helper(start, i - 1, memo), helper(i + 1, end, memo));
+            res = min(res, temp);
+        }
+        
+        memo[start][end] = res;
+        return res;
+    }
+public:
+    int getMoneyAmount(int n) {
+        vector<vector<int>> memo (n + 1, vector<int>(n + 1, INT_MAX));
+        return helper(1, n, memo);
+    }
+};
