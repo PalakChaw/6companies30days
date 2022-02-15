@@ -1,0 +1,22 @@
+/* https://practice.geeksforgeeks.org/problems/number-of-unique-paths5339/1/ */
+/* Number of Unique Paths */
+ int NumberOfPath(int n, int m)
+    {
+        int dp[n+1][m+1];
+        for(int i=1;i<=n;i++)
+        {
+            for(int j=1;j<=m;j++)
+            {
+                if(i==1 || j==1)
+                dp[i][j]=1;
+                
+            }
+        }
+    
+        for(int i=2;i<=n;i++)
+        {
+            for(int j=2;j<=m;j++)
+            dp[i][j]=dp[i][j-1]+dp[i-1][j];
+        }
+        return dp[n][m];
+    }
